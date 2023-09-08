@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import ForecastWeather from "../components/ForecastWeather.tsx";
 import CurrentWeather from "../components/CurrentWeather.tsx";
 import {AiOutlineSearch} from "react-icons/ai";
@@ -16,8 +16,9 @@ const Home = () => {
     }
 
     return (
-        <div className={'w-3/5 mb-20 mt-10'}>
-            <form className={'mt-5 mb-5 pl-5 pt-1 pr-1 pb-1 justify-between items-center rounded-l-full rounded-r-full bg-white flex'}>
+        <div className={'w-11/12 sm:w-3/5 mb-20 mt-10'}>
+            <form
+                className={'mt-5 mb-5 pl-5 pt-1 pr-1 pb-1 justify-between items-center rounded-l-full rounded-r-full bg-white flex'}>
                 <section className=''>
                     <label htmlFor='lat' className={'text-xs mr-2'}>Latitude</label>
                     <input
@@ -40,14 +41,16 @@ const Home = () => {
                         onChange={(e) => setUserLon(parseFloat(e.target.value))}
                     />
                 </section>
-                <button onClick={handleLatLonChange} className={'bg-blue-500 pt-1 pb-1 pl-4 pr-4 text-white rounded-full flex gap-3 items-center'} type='submit'>Submit <AiOutlineSearch className={'text-xl'}/></button>
+                <button onClick={handleLatLonChange}
+                        className={'bg-blue-500 pt-1 pb-1 pl-4 pr-4 text-white rounded-full flex gap-3 items-center'}
+                        type='submit'>Submit <AiOutlineSearch className={'text-xl'}/></button>
             </form>
 
-            <CurrentWeather lat={lat} lon={lon} />
+            <CurrentWeather lat={lat} lon={lon}/>
 
             <h1 className={'mt-5 mb-2 font-semibold text-xl'}>Extended Forecast</h1>
 
-            <ForecastWeather lat={lat} lon={lon} />
+            <ForecastWeather lat={lat} lon={lon}/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import moment from "moment";
 import {CiLocationArrow1} from "react-icons/ci";
 import {GiFrayedArrow, GiWindSlap} from "react-icons/gi";
@@ -21,7 +21,7 @@ interface WeatherData {
     icon: string;
 }
 
-function CurrentWeather({ lat, lon }: { lat: number; lon: number }) {
+function CurrentWeather({lat, lon}: { lat: number; lon: number }) {
     const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 
     const fetchWeatherData = async () => {
@@ -61,35 +61,39 @@ function CurrentWeather({ lat, lon }: { lat: number; lon: number }) {
                         <h1>Current Weather</h1>
                         <h1>{moment(weatherData.date_time).format('dddd')} {moment(weatherData.date_time).format('ll')}</h1>
                     </div>
-                    <div className='flex p-5 gap-20 items-center'>
-                        <div className='w-2/4'>
-                            <h1 className='flex items-center text-xl gap-2 font-semibold'><CiLocationArrow1 />{weatherData.city}, {weatherData.country}</h1>
+                    <div className='block sm:flex p-5 gap-20 items-center'>
+                        <div className='w-full sm:w-2/4'>
+                            <h1 className='flex items-center text-xl gap-2 font-semibold'>
+                                <CiLocationArrow1/>{weatherData.city}, {weatherData.country}</h1>
                             <div className='flex gap-4 items-center'>
-                                <img src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt='weather icon' />
+                                <img src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
+                                     alt='weather icon'/>
                                 <h1 className='text-5xl font-thin'>{weatherData.temp}° C</h1>
                             </div>
                             <strong className='text-xl text-gray-500'>{weatherData.weather_description}</strong>
                         </div>
-                        <div className='w-2/4'>
+                        <div className='w-full sm:w-2/4'>
                             <h1>Feels like {weatherData.feels_like}°C</h1>
                             <div className={'flex gap-10 mt-2 mb-5'}>
-                                <p className='flex gap-2 items-center'><FaTemperatureArrowUp />{weatherData.temp_max}°C</p>
-                                <p className='flex gap-2 items-center'><FaTemperatureArrowDown />{weatherData.temp_min}°C</p>
+                                <p className='flex gap-2 items-center'><FaTemperatureArrowUp/>{weatherData.temp_max}°C
+                                </p>
+                                <p className='flex gap-2 items-center'><FaTemperatureArrowDown/>{weatherData.temp_min}°C
+                                </p>
                             </div>
                             <table>
                                 <tbody className={'text-sm'}>
                                 <tr>
-                                    <td className='pr-3'><BsDropletHalf /></td>
+                                    <td className='pr-3'><BsDropletHalf/></td>
                                     <td className='pr-3'>Humidity</td>
                                     <td>{weatherData.humidity}%</td>
                                 </tr>
                                 <tr>
-                                    <td><GiWindSlap /></td>
+                                    <td><GiWindSlap/></td>
                                     <td>Wind</td>
                                     <td>{weatherData.wind}kph</td>
                                 </tr>
                                 <tr>
-                                    <td><GiFrayedArrow /></td>
+                                    <td><GiFrayedArrow/></td>
                                     <td>Pressure</td>
                                     <td>{weatherData.pressure}hPa</td>
                                 </tr>

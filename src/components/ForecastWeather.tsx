@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import moment from "moment";
 
 export interface ForecastData {
@@ -9,7 +9,7 @@ export interface ForecastData {
     icon: string;
 }
 
-function ForecastWeather({ lat, lon }: { lat: number; lon: number }) {
+function ForecastWeather({lat, lon}: { lat: number; lon: number }) {
     const [forecastData, setForecastData] = useState<Record<string, ForecastData[]> | null>(null);
     const [showAll, setShowAll] = useState<boolean>(false);
 
@@ -57,31 +57,33 @@ function ForecastWeather({ lat, lon }: { lat: number; lon: number }) {
         <>
             {forecastData !== null && (
                 <>
-                <div>
-                    {Object.keys(forecastData).slice(0, showAll ? undefined : 3).map((date) => (
-                        <div key={date} className={'mb-2 p-5 bg-white bg-opacity-40 rounded-xl'}>
-                            <h1 className={'mb-2'}>
-                                {moment(new Date()).format('l') === moment(date).format('l') ?
-                                    <span>Today</span>
-                                    : <span>{moment(date).format('dddd')}</span>
-                                }
-                                <span className={'text-xs text-gray-600'}> ({moment(date).format('ll')})</span>
-                            </h1>
+                    <div>
+                        {Object.keys(forecastData).slice(0, showAll ? undefined : 3).map((date) => (
+                            <div key={date} className={'mb-2 p-5 bg-white bg-opacity-40 rounded-xl'}>
+                                <h1 className={'mb-2'}>
+                                    {moment(new Date()).format('l') === moment(date).format('l') ?
+                                        <span>Today</span>
+                                        : <span>{moment(date).format('dddd')}</span>
+                                    }
+                                    <span className={'text-xs text-gray-600'}> ({moment(date).format('ll')})</span>
+                                </h1>
 
-                            <div className='flex justify-center gap-10 text-sm'>
-                                {forecastData[date].map((item, index) => (
-                                    <div key={index} className='text-center'>
-                                        <p className={'italic'}>{item.time.slice(0,5)}</p>
-                                        <img src={`http://openweathermap.org/img/wn/${item.icon}.png`} alt='weather icon' />
-                                        <p className={'font-semibold'}>{item.weather}</p>
-                                        <p className={'text-xs'}>{item.temp}°C</p>
-                                    </div>
-                                ))}
+                                <div className='flex justify-center gap-10 text-sm'>
+                                    {forecastData[date].map((item, index) => (
+                                        <div key={index} className='text-center'>
+                                            <p className={'italic'}>{item.time.slice(0, 5)}</p>
+                                            <img src={`http://openweathermap.org/img/wn/${item.icon}.png`}
+                                                 alt='weather icon'/>
+                                            <p className={'font-semibold'}>{item.weather}</p>
+                                            <p className={'text-xs'}>{item.temp}°C</p>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-                    <button onClick={toggleShowAll} className={'mt-5 pt-2 pb-2 pl-5 pr-5 border-2 block m-auto text-blue-500 border-blue-500 bg-white rounded-l-full rounded-r-full hover:text-white hover:bg-blue-500 hover:border-blue-500'}>
+                        ))}
+                    </div>
+                    <button onClick={toggleShowAll}
+                            className={'mt-5 pt-2 pb-2 pl-5 pr-5 border-2 block m-auto text-blue-500 border-blue-500 bg-white rounded-l-full rounded-r-full hover:text-white hover:bg-blue-500 hover:border-blue-500'}>
                         {showAll ? 'show less' : 'see more'}
                     </button>
                 </>

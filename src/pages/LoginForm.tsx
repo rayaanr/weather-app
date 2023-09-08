@@ -1,8 +1,8 @@
-import { useState } from "react";
+import {useState} from "react";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-const LoginForm = ({ handleLogin }) => {
+const LoginForm = ({handleLogin}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
