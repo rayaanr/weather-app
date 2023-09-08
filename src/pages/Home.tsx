@@ -17,10 +17,6 @@ const Home = () => {
 
     return (
         <div className={'w-3/5 mb-20 mt-10'}>
-            <nav className={'flex gap-3 items-center'}>
-                <img src={'logo.svg'} alt={'logo'} className={'w-10 h-auto'}/>
-                <h1 className={'text-3xl font-semibold'}>Weather App</h1>
-            </nav>
             <form className={'mt-5 mb-5 pl-5 pt-1 pr-1 pb-1 justify-between items-center rounded-l-full rounded-r-full bg-white flex'}>
                 <section className=''>
                     <label htmlFor='lat' className={'text-xs mr-2'}>Latitude</label>
