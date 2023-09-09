@@ -59,7 +59,7 @@ function ForecastWeather({lat, lon}: { lat: number; lon: number }) {
                 <>
                     <div>
                         {Object.keys(forecastData).slice(0, showAll ? undefined : 3).map((date) => (
-                            <div key={date} className={'mb-2 p-5 bg-white bg-opacity-40 rounded-xl'}>
+                            <div key={date} className={'mb-2 p-5 bg-white bg-opacity-40 rounded-xl overflow-auto'}>
                                 <h1 className={'mb-2'}>
                                     {moment(new Date()).format('l') === moment(date).format('l') ?
                                         <span>Today</span>

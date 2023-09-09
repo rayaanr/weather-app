@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {credentials} from "../credentials.ts";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -8,7 +9,7 @@ const LoginForm = ({handleLogin}) => {
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        if (username === 'rayaan' && password === '123') {
+        if (username === credentials.username && password === credentials.password) {
             console.log('Login successful');
             handleLogin();
         } else {

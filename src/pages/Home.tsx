@@ -16,7 +16,7 @@ const Home = () => {
     }
 
     return (
-        <div className={'w-11/12 sm:w-3/5 mb-20 mt-10'}>
+        <div className={'w-11/12 sm:w-11/12 md:3/4  lg:w-3/5 mb-20 mt-10'}>
             <form
                 className={'mt-5 mb-5 pl-5 pt-1 pr-1 pb-1 justify-between items-center rounded-l-full rounded-r-full bg-white flex'}>
                 <section className=''>

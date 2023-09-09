@@ -61,26 +61,26 @@ function CurrentWeather({lat, lon}: { lat: number; lon: number }) {
                         <h1>Current Weather</h1>
                         <h1>{moment(weatherData.date_time).format('dddd')} {moment(weatherData.date_time).format('ll')}</h1>
                     </div>
-                    <div className='block sm:flex p-5 gap-20 items-center'>
+                    <div className='block sm:flex  p-5 gap-20 items-center'>
                         <div className='w-full sm:w-2/4'>
-                            <h1 className='flex items-center text-xl gap-2 font-semibold'>
+                            <h1 className='flex justify-center sm:justify-start items-center text-xl gap-2 font-semibold'>
                                 <CiLocationArrow1/>{weatherData.city}, {weatherData.country}</h1>
-                            <div className='flex gap-4 items-center'>
+                            <div className='flex gap-4 justify-center sm:justify-start items-center'>
                                 <img src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
                                      alt='weather icon'/>
                                 <h1 className='text-5xl font-thin'>{weatherData.temp}° C</h1>
                             </div>
-                            <strong className='text-xl text-gray-500'>{weatherData.weather_description}</strong>
+                            <strong className='text-xl text-gray-500 flex justify-center sm:justify-start'>{weatherData.weather_description}</strong>
                         </div>
                         <div className='w-full sm:w-2/4'>
-                            <h1>Feels like {weatherData.feels_like}°C</h1>
-                            <div className={'flex gap-10 mt-2 mb-5'}>
+                            <h1 className={'flex justify-center sm:justify-start'}>Feels like {weatherData.feels_like}°C</h1>
+                            <div className={'flex gap-10 justify-center sm:justify-start mt-2 mb-5'}>
                                 <p className='flex gap-2 items-center'><FaTemperatureArrowUp/>{weatherData.temp_max}°C
                                 </p>
                                 <p className='flex gap-2 items-center'><FaTemperatureArrowDown/>{weatherData.temp_min}°C
                                 </p>
                             </div>
-                            <table>
+                            <table className={'flex justify-center sm:justify-start'}>
                                 <tbody className={'text-sm'}>
                                 <tr>
                                     <td className='pr-3'><BsDropletHalf/></td>
