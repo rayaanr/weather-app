@@ -22,7 +22,7 @@ const Home = () => {
                 <section className=''>
                     <label htmlFor='lat' className={'text-xs mr-2'}>Latitude</label>
                     <input
-                        className='text-sm w-32 bg-gray-200 rounded-r-full rounded-l-full pl-2 pr-2'
+                        className='text-sm w-20 sm:w-32 bg-gray-200 rounded-r-full rounded-l-full pl-2 pr-2'
                         type='number'
                         id='lat'
                         value={userLat.toString()}
@@ -33,7 +33,7 @@ const Home = () => {
                 <section className=''>
                     <label htmlFor='lon' className={'text-xs mr-2'}>Longitude</label>
                     <input
-                        className='text-sm w-32 bg-gray-200 rounded-r-full rounded-l-full pl-2 pr-2'
+                        className='text-sm w-20 sm:w-32 bg-gray-200 rounded-r-full rounded-l-full pl-2 pr-2'
                         type='number'
                         id='lon'
                         value={userLon.toString()}
@@ -42,8 +42,8 @@ const Home = () => {
                     />
                 </section>
                 <button onClick={handleLatLonChange}
-                        className={'bg-blue-500 pt-1 pb-1 pl-4 pr-4 text-white rounded-full flex gap-3 items-center'}
-                        type='submit'>Submit <AiOutlineSearch className={'text-xl'}/></button>
+                        className={'bg-blue-500 p-1 sm:pt-1 sm:pb-1 sm:pl-4 sm:pr-4 text-white rounded-full flex gap-3 items-center'}
+                        type='submit'><span className={'hidden sm:flex'}>Submit</span><AiOutlineSearch className={'text-xl'}/></button>
             </form>
 
             <CurrentWeather lat={lat} lon={lon}/>
