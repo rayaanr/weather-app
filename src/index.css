@@ -2,12 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Quantify';
+    src: url("../public/Quantify.ttf") format("opentype");
+}
+
 body {
     background-image: url("../public/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+.font-quantify {
+    font-family: 'Quantify', serif;
+    letter-spacing: 1px;
 }
 
 /*.blue-shade-bg {*/

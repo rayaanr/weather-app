@@ -12,10 +12,6 @@ function App() {
 
     return (
         <>
-            <nav className="flex gap-3 absolute w-full justify-center pt-3 items-center">
-                <img src="logo.svg" alt="logo" className="w-10 h-auto"/>
-                <h1 className="text-3xl font-semibold">Weather App</h1>
-            </nav>
             <main className="min-h-screen flex justify-center items-center">
                 <Router>
                     <Routes>

@@ -68,7 +68,7 @@ function ForecastWeather({lat, lon}: { lat: number; lon: number }) {
                                     <span className={'text-xs text-gray-600'}> ({moment(date).format('ll')})</span>
                                 </h1>
 
-                                <div className='flex justify-center gap-10 text-sm'>
+                                <div className='flex justify-start sm:justify-center gap-10 text-sm'>
                                     {forecastData[date].map((item, index) => (
                                         <div key={index} className='text-center'>
                                             <p className={'italic'}>{item.time.slice(0, 5)}</p>

@@ -39,7 +39,7 @@ function CurrentWeather({lat, lon}: { lat: number; lon: number }) {
                 temp_max: data.main.temp_max,
                 temp_min: data.main.temp_min,
                 humidity: data.main.humidity,
-                wind: data.main.wind,
+                wind: data.wind.speed,
                 pressure: data.main.pressure,
                 icon: data.weather[0].icon
             };
@@ -90,7 +90,7 @@ function CurrentWeather({lat, lon}: { lat: number; lon: number }) {
                                 <tr>
                                     <td><GiWindSlap/></td>
                                     <td>Wind</td>
-                                    <td>{weatherData.wind}kph</td>
+                                    <td>{(weatherData.wind*3.6).toFixed(2)}km/h</td>
                                 </tr>
                                 <tr>
                                     <td><GiFrayedArrow/></td>

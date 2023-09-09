@@ -17,8 +17,12 @@ const Home = () => {
 
     return (
         <div className={'w-11/12 sm:w-11/12 md:3/4  lg:w-3/5 mb-20 mt-10'}>
+            <section className="flex gap-3 w-full mb-5 justify-center items-center">
+                <img src="logo.svg" alt="logo" className="w-10 h-auto"/>
+                <h1 className="text-3xl font-quantify">Weather App</h1>
+            </section>
             <form
-                className={'mt-5 mb-5 pl-5 pt-1 pr-1 pb-1 justify-between items-center rounded-l-full rounded-r-full bg-white flex'}>
+                className={'mb-8 pl-5 pt-1 pr-1 pb-1 justify-between items-center rounded-l-full rounded-r-full bg-white flex'}>
                 <section className=''>
                     <label htmlFor='lat' className={'text-xs mr-2'}>Latitude</label>
                     <input

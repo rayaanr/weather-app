@@ -4,22 +4,25 @@ import {credentials} from "../credentials.ts";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const LoginForm = ({handleLogin}) => {
+    const [error, setError] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         if (username === credentials.username && password === credentials.password) {
-            console.log('Login successful');
             handleLogin();
         } else {
-            console.log('Invalid username or password');
+            setError('Invalid username or password')
         }
     };
 
     return (
         <main className='text-center w-11/12 sm:w-2/5 backdrop-blur-md border-2 border-white rounded-xl p-10'>
-            <h1 className='text-2xl mb-10'>Login</h1>
+            <section className="flex gap-3 w-full justify-center mb-14 items-center">
+                <img src="logo.svg" alt="logo" className="w-10 h-auto"/>
+                <h1 className="text-3xl font-quantify">Weather App</h1>
+            </section>
             <form>
                 <section className='text-left mb-5'>
                     <label htmlFor='username'>Username</label><br/>
@@ -50,6 +53,7 @@ const LoginForm = ({handleLogin}) => {
                 >
                     Login
                 </button>
+                <p className={'flex justify-center text-red-500 p-2'}>{error}</p>
             </form>
         </main>
     );
