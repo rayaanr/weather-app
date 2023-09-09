@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import moment from "moment";
+import {API_Key} from "../credentials.ts";
 
+// ForecastData structure
 export interface ForecastData {
     temp: number;
     weather: string;
@@ -12,14 +14,15 @@ export interface ForecastData {
 function ForecastWeather({lat, lon}: { lat: number; lon: number }) {
     const [forecastData, setForecastData] = useState<Record<string, ForecastData[]> | null>(null);
     const [showAll, setShowAll] = useState<boolean>(false);
+    const API_KEY = API_Key;
 
-    const toggleShowAll = () => {
+    const toggleShowAll = () => {   // Toggle showAll state
         setShowAll(!showAll);
     }
 
     const fetchForecastData = async () => {
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=55f71626e6e908b7ffe69944f1add73b`);
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`);
             const data = await response.json();
 
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -35,9 +38,9 @@ function ForecastWeather({lat, lon}: { lat: number; lon: number }) {
                     icon: item.weather[0].icon,
                 };
 
-                if (acc[date]) {
+                if (acc[date]) {    // If date already exists in acc, push forecastItem to acc[date]
                     acc[date].push(forecastItem);
-                } else {
+                } else {    // Else, create new key-value pair in acc
                     acc[date] = [forecastItem];
                 }
                 return acc;
@@ -49,7 +52,7 @@ function ForecastWeather({lat, lon}: { lat: number; lon: number }) {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => {   // Fetch weather data when lat or lon changes
         fetchForecastData();
     }, [lat, lon]);
 
@@ -58,7 +61,7 @@ function ForecastWeather({lat, lon}: { lat: number; lon: number }) {
             {forecastData !== null && (
                 <>
                     <div>
-                        {Object.keys(forecastData).slice(0, showAll ? undefined : 3).map((date) => (
+                        {Object.keys(forecastData).slice(0, showAll ? undefined : 3).map((date) => (    // Show only 3 days till showAll is clicked
                             <div key={date} className={'mb-2 p-5 bg-white bg-opacity-40 rounded-xl overflow-auto'}>
                                 <h1 className={'mb-2'}>
                                     {moment(new Date()).format('l') === moment(date).format('l') ?
@@ -90,7 +93,6 @@ function ForecastWeather({lat, lon}: { lat: number; lon: number }) {
             )}
         </>
     )
-
 }
 
 export default ForecastWeather;

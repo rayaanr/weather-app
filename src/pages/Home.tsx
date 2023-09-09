@@ -46,8 +46,8 @@ const Home = () => {
                     />
                 </section>
                 <button onClick={handleLatLonChange}
-                        className={'bg-blue-500 p-1 sm:pt-1 sm:pb-1 sm:pl-4 sm:pr-4 text-white rounded-full flex gap-3 items-center'}
-                        type='submit'><span className={'hidden sm:flex'}>Submit</span><AiOutlineSearch className={'text-xl'}/></button>
+                        className={'bg-blue-500 border border-blue-500 p-1 sm:pt-1 sm:pb-1 sm:pl-4 sm:pr-4 text-white rounded-full flex gap-3 items-center hover:bg-white hover:text-blue-500'}
+                        type='submit'><span className={'hidden sm:flex'}>View</span><AiOutlineSearch className={'text-xl'}/></button>
             </form>
 
             <CurrentWeather lat={lat} lon={lon}/>

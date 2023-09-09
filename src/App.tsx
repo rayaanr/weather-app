@@ -16,13 +16,13 @@ function App() {
                 <Router>
                     <Routes>
                         <Route path="/"
-                            element={loggedIn ? (<Navigate to="/weather"/>)
-                                    : (<LoginForm handleLogin={handleLogin}/>)
+                            element={loggedIn ? (<Navigate to="/weather"/>) // If logged in, redirect to /weather
+                                    : (<LoginForm handleLogin={handleLogin}/>)  // Else, show login form
                             }
                         />
-                        <Route
-                            path="/weather"
-                            element={loggedIn ? <Home/> : <Navigate to="/"/>}
+                        {/* Prevent access to /weather if not logged in*/}
+                        <Route path="/weather"
+                            element={loggedIn ? <Home/> : <Navigate to="/"/>}   // If logged in, show Home page, else redirect to /
                         />
                     </Routes>
                 </Router>

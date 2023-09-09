@@ -1,0 +1,4 @@
+* In the task, it asked me to display the forecast for the next 7 days.
+* However, the free API only provides a 5-day forecast.
+* So, I implemented it to show the forecast for 3 days, including today, and to display the rest of the
+data when the 'Show More' button is clicked.
