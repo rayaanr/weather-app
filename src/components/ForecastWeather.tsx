@@ -86,7 +86,7 @@ function ForecastWeather({lat, lon}: { lat: number; lon: number }) {
                         ))}
                     </div>
                     <button onClick={toggleShowAll}
-                            className={'mt-5 pt-2 pb-2 pl-5 pr-5 border-2 block m-auto text-blue-500 border-blue-500 bg-white rounded-l-full rounded-r-full hover:text-white hover:bg-blue-500 hover:border-blue-500'}>
+                            className={'mt-5 pt-2 pb-2 pl-5 pr-5 border-2 block m-auto text-blue-500 border-blue-500 bg-white rounded-l-full rounded-r-full hover:text-white hover:bg-blue-500 hover:border-blue-500 transition duration-200 delay-100'}>
                         {showAll ? 'show less' : 'see more'}
                     </button>
                 </>

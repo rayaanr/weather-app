@@ -19,15 +19,16 @@ const LoginForm = ({handleLogin}) => {
 
     return (
         <main className='text-center w-11/12 sm:w-2/5 backdrop-blur-md border-2 border-white rounded-xl p-10'>
-            <section className="flex gap-3 w-full justify-center mb-14 items-center">
+            <section className="flex gap-3 w-full justify-center mb-4 items-center">
                 <img src="logo.svg" alt="logo" className="w-10 h-auto"/>
-                <h1 className="text-3xl font-quantify">Weather App</h1>
+                <h1 className="text-4xl font-quantify">Weather App</h1>
             </section>
+            <h1 className={'text-2xl font-semibold mb-10 text-gray-700'}>Login</h1>
             <form>
                 <section className='text-left mb-5'>
                     <label htmlFor='username'>Username</label><br/>
                     <input
-                        className='w-full h-10 rounded-l-full rounded-r-full pl-5 text-sm'
+                        className='w-full h-10 rounded-l-full rounded-r-full pl-5 mt-1 text-sm'
                         type='text'
                         id='username'
                         value={username}
@@ -38,7 +39,7 @@ const LoginForm = ({handleLogin}) => {
                 <section className='text-left mb-5'>
                     <label htmlFor='password'>Password</label><br/>
                     <input
-                        className='w-full h-10 rounded-l-full rounded-r-full pl-5 text-sm'
+                        className='w-full h-10 rounded-l-full rounded-r-full pl-5 mt-1 text-sm'
                         type='password'
                         id='password'
                         value={password}
@@ -48,7 +49,7 @@ const LoginForm = ({handleLogin}) => {
                 </section>
                 <button
                     onClick={handleSubmit}
-                    className='w-full mt-5 pt-2 pb-2 pl-5 pr-5 border-2 text-white border-blue-500 bg-blue-500 rounded-l-full rounded-r-full hover:text-blue-500 hover:bg-white hover:border-blue-500'
+                    className='w-full mt-5 pt-2 pb-2 pl-5 pr-5 border-2 text-white border-blue-500 bg-blue-500 rounded-l-full rounded-r-full hover:text-blue-500 hover:bg-white hover:border-blue-500 transition duration-200 delay-100'
                     type='submit'
                 >
                     Login
